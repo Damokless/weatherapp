@@ -1,0 +1,32 @@
+# Configuration générale
+root = true
+
+[*]
+indent_style = tab
+tab_width = 4
+indent_size = 4
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Chaque fonction doit être séparée par une ligne vide de la suivante.
+blank_lines_around_functions = 1
+
+# Une ligne vide doit être vide. Elle ne doit pas contenir d’espace ou de tabulation.
+empty_line = empty
+
+# Vous ne pouvez pas avoir 2 espaces à la suite.
+no_consecutive_spaces = true
+
+# Chaque virgule ou point-virgule doit être suivi d’un espace, sauf en fin de ligne.
+space_after_comma = true
+space_after_semicolon = true
+
+# Les noms de variables, de fonctions doivent être composés exclusivement de minuscules, de chiffres et de ’_’ (Unix Case).
+variable* = snake_case
+function* = snake_case
+
+# Les noms de fichiers et de répertoires doivent être composés exclusivement de minuscules, de chiffres et de ’_’ (Unix Case).
+[file]
+file* = snake_case
