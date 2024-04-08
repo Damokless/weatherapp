@@ -48,7 +48,7 @@ export default function Footer() {
 					}
 					aria-label="Folder icon"
 					as={Link}
-					href="https://github.com/Damokless"
+					href="https://github.com/Damokless/weatherapp"
 					isExternal
 				>
 					Repository
@@ -65,7 +65,7 @@ export default function Footer() {
 					}
 					aria-label="Linkedin icon"
 					as={Link}
-					href="https://github.com/Damokless"
+					href="https://www.linkedin.com/in/alexandre-bouzon/"
 					isExternal
 				>
 					Linkedin Profile
