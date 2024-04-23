@@ -1,8 +1,8 @@
-import { Button } from "@nextui-org/button";
+import Search from "@/components/Search";
 export default function Home() {
   return (
     <div>
-      <Button variant="bordered">Click me</Button>
+      <Search/>
     </div>
   );
 }
