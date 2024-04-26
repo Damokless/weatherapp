@@ -46,6 +46,7 @@ export default function Search() {
 				placeholder="Paris"
 				variant="bordered"
 				onInputChange={list.setFilterText}
+				onKeyDown={(e: any) => e.continuePropagation()}
 			>
 				{list.items.map((item: OWATypes, index: number) => (
 					<AutocompleteItem key={index}>
