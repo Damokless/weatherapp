@@ -3,20 +3,29 @@ import AsyncListTypes from "@/interfaces/async_list_type";
 import OWATypes from "@/interfaces/owa_types";
 import { Autocomplete, AutocompleteItem, Avatar } from "@nextui-org/react";
 import { useAsyncList } from "@react-stately/data";
+import { useState } from "react";
+
 
 export default function Search() {
+	const [timer, setTimer] = useState<number>()
 	let list: AsyncListTypes = useAsyncList({
 		async load({ signal, filterText }) {
 			if (filterText !== "") {
-				let res = await fetch(
-					`https://api.openweathermap.org/geo/1.0/direct?q=${filterText}&limit=5&appid=${process.env.OWAPI_API_KEY}`,
-					{ signal }
-				);
-				let json = await res.json();
+				return new Promise(function(resolve) {
+					clearTimeout(timer)
+					const newTimer = window.setTimeout(async () => {
+						// no callback function .then() to avoid too many deep levels (Vie de ma mère, one day I'll figure out how to make a better api call)
+						let res = await fetch(
+							`https://api.openweathermap.org/geo/1.0/direct?q=${filterText}&limit=5&appid=${process.env.NEXT_PUBLIC_OW_API_KEY}`,
+							{ signal }
+						);
+						let json = await res.json();
 
-				return {
-					items: json,
-				};
+						resolve({items : json})
+					}, 250);
+					setTimer(newTimer)
+				  });
+
 			} else {
 				return {
 					items: [],
