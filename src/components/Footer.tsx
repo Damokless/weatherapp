@@ -2,7 +2,7 @@ import { Button, Divider, Link } from "@nextui-org/react";
 
 export default function Footer() {
 	return (
-		<div className="w-full flex flex-col justify-center items-center my-16 gap-8 absolute bottom-0">
+		<div className="w-full flex flex-col justify-center items-center my-16 gap-8">
 			<div className="flex justify-center items-center gap-2">
 				<p className="font-bold text-inherit">
 					Weather App By{" "}

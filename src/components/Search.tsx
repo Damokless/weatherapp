@@ -31,9 +31,12 @@ export default function Search() {
 		}
 	}
 	return (
-		<div>
+		<div className="w-full h-full flex flex-col justify-center items-center gap-3">
+			<div className="w-5/6 flex text-start">
+				<h1>Ou va-t-on ?</h1>
+			</div>
 			<Autocomplete
-				className="max-w-xs"
+				className=" w-5/6"
 				isLoading={isLoading}
 				items={geocodeData}
 				label="Search a city"
