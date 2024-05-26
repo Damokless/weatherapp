@@ -5,7 +5,7 @@ import OWATypes from "@/interfaces/owa_types";
 import { Autocomplete, AutocompleteItem, Avatar } from "@nextui-org/react";
 import { useState } from "react";
 
-export default function Search() {
+export default function Search({ setValue }) {
 	const [timer, setTimer] = useState<number>();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [geocodeData, setGeocodeData] = useState<OWATypes[]>([]);
@@ -23,10 +23,12 @@ export default function Search() {
 	}
 	async function get_data_selected_city(id: any) {
 		if (id !== null) {
-			fetch_all_weather_data(
-				geocodeData[id].lat,
-				geocodeData[id].lon,
-				process.env.NEXT_PUBLIC_OW_API_KEY
+			setValue(
+				await fetch_all_weather_data(
+					geocodeData[id].lat,
+					geocodeData[id].lon,
+					process.env.NEXT_PUBLIC_OW_API_KEY
+				)
 			);
 		}
 	}
