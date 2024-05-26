@@ -14,7 +14,7 @@ export default async function fetch_all_weather_data(
 			return {};
 		});
 	const air_polution = await fetch(
-		`http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${api_key}`
+		`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${api_key}`
 	)
 		.then((res) => res.json())
 		.then((data) => {
