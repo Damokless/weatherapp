@@ -37,6 +37,6 @@ export default async function fetch_all_weather_data(
 		air_quality_index: air_polution.list[0].main.aqi,
 		components: air_polution.list[0].components,
 	};
-	weather.forecast = forecast.list;
+	weather.forecast = forecast.list.slice(0,9);
 	return weather
 }
