@@ -2,13 +2,15 @@
 import fetch_all_weather_data from "@/functions/fetch_all_weather_data";
 import fetch_geocode from "@/functions/fetch_geocode";
 import OWATypes from "@/interfaces/owa_types";
+import SetWeatherValue from "@/interfaces/set_weather_value";
 import { Autocomplete, AutocompleteItem, Avatar } from "@nextui-org/react";
 import { useState } from "react";
 
-export default function Search({ setValue }) {
+export default function Search({ setValue }: Readonly<SetWeatherValue>) {
 	const [timer, setTimer] = useState<number>();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [geocodeData, setGeocodeData] = useState<OWATypes[]>([]);
+
 	function fetchGeocode(text: string) {
 		setIsLoading(true);
 		clearTimeout(timer);
