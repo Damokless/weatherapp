@@ -55,7 +55,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 									width={76}
 								/>
 								<p className="text-3xl">
-									{weatherData.main.temp} °c
+									{Math.round(weatherData.main.temp)} °c
 								</p>
 							</div>
 							<div className="flex flex-col justify-center">
@@ -63,11 +63,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 									{weatherData.weather[0].main}
 								</p>
 								<p className="text-small text-default-500 text-end">
-									{weatherData.main.temp_min}°c /
-									{weatherData.main.temp_max}°c
+									{Math.round(weatherData.main.temp_min)}°c /
+									{Math.round(weatherData.main.temp_max)}°c
 								</p>
 								<p className="text-small text-default-500 text-end">
-									feels like {weatherData.main.feels_like}°c
+									feels like {Math.round(weatherData.main.feels_like)}°c
 								</p>
 							</div>
 						</div>
@@ -101,7 +101,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 										/>
 										<div className="text-center">
 											<p className="text-small text-default-500">
-												{forecast.main.temp} °c
+												{Math.round(forecast.main.temp)} °c
 											</p>
 										</div>
 									</CardBody>
