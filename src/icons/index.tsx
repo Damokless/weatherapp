@@ -1,0 +1,7 @@
+export {default as Droplet} from './droplet'
+export {default as Eye} from './eye'
+export {default as MapPin} from './map-pin'
+export {default as Pressure} from './pressure'
+export {default as SunRise} from './sunrise'
+export {default as SunSet} from './sunset'
+export {default as Wind} from './wind'
