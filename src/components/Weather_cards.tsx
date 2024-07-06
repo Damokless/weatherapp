@@ -1,6 +1,4 @@
-import MapPin from "@/icons/map-pin";
-import SunRise from "@/icons/sunrise";
-import SunSet from "@/icons/sunset";
+import { Eye, Droplet, Pressure, SunRise, SunSet, MapPin, Wind } from "@/icons";
 import WDataTypes from "@/interfaces/weather_data_types";
 import {
 	Card,
@@ -24,7 +22,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 		so2: "Sulphur dioxide",
 	};
 	return (
-		<div className=" flex justify-center items-center flex-col gap-8 w-full">
+		<div className=" flex justify-center items-center flex-col gap-8 w-11/12">
 			<Card className="">
 				<CardHeader className="flex gap-3">
 					<div className="w-full">
@@ -67,7 +65,8 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 									{Math.round(weatherData.main.temp_max)}°c
 								</p>
 								<p className="text-small text-default-500 text-end">
-									feels like {Math.round(weatherData.main.feels_like)}°c
+									feels like{" "}
+									{Math.round(weatherData.main.feels_like)}°c
 								</p>
 							</div>
 						</div>
@@ -101,7 +100,8 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 										/>
 										<div className="text-center">
 											<p className="text-small text-default-500">
-												{Math.round(forecast.main.temp)} °c
+												{Math.round(forecast.main.temp)}{" "}
+												°c
 											</p>
 										</div>
 									</CardBody>
@@ -111,69 +111,115 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 					)}
 				</CardBody>
 			</Card>
-			<Card className="">
+			<Card className="w-full">
 				<CardBody>
 					<div className=" grid grid-cols-2 grid-rows-3 gap-4">
 						<section>
-							<div className="flex items-center gap-3 mb-3">
-								<SunRise />
-								Sunrise
-								<p>
-								{new Date(
-									weatherData.sys.sunrise * 1000
-								).toLocaleTimeString("fr-fr", {
-									hour: "2-digit",
-									minute: "2-digit",
-								})}
-							</p>
+							<div className="flex mb-3 w-full justify-between">
+								<div className="flex items-center gap-3">
+									<SunRise />
+									Sunrise
+								</div>
+								<p className=" self-center">
+									{new Date(
+										weatherData.sys.sunrise * 1000
+									).toLocaleTimeString("fr-fr", {
+										hour: "2-digit",
+										minute: "2-digit",
+									})}
+								</p>
 							</div>
 							<Divider />
 						</section>
 						<section>
-							<div className="flex items-center gap-3 mb-3">
-								<SunSet />
-								Sunset
-								<p>
-								{new Date(
-									weatherData.sys.sunset * 1000
-								).toLocaleTimeString("fr-fr", {
-									hour: "2-digit",
-									minute: "2-digit",
-								})}
-							</p>
+							<div className="flex mb-3 w-full justify-between">
+								<div className="flex items-center gap-3">
+									<SunSet />
+									Sunset
+								</div>
+								<p className=" self-center">
+									{new Date(
+										weatherData.sys.sunset * 1000
+									).toLocaleTimeString("fr-fr", {
+										hour: "2-digit",
+										minute: "2-digit",
+									})}
+								</p>
 							</div>
 							<Divider />
 						</section>
-						<p>test</p>
-						<p>test</p>
-						<p>test</p>
-						<p>test</p>
-						{/* <div>
-							<h3>
-								Air quality{" "}
-								<span className="text-small text-default-500">
-									( μg/m3 )
-								</span>
-							</h3>
+						<section>
+							<div className="flex mb-3 w-full justify-between">
+								<div className="flex items-center gap-3">
+									<Droplet />
+									Humidity
+								</div>
+								<p className=" self-center">
+									{weatherData.main.humidity}%
+								</p>
+							</div>
 							<Divider />
-						</div>
-						<div>
-							<p>
-								Air quality index :
-								{weatherData.air_quality.air_quality_index}
-							</p>
-							{Object.entries(weatherData.air_quality.components).map(([key, value]) => {
+						</section>
+						<section>
+							<div className="flex mb-3 w-full justify-between">
+								<div className="flex items-center gap-3">
+									<Pressure />
+									Pressure
+								</div>
+								<p className=" self-center">
+									{weatherData.main.pressure}
+								</p>
+							</div>
+							<Divider />
+						</section>
+						<section>
+							<div className="flex mb-3 w-full justify-between">
+								<div className="flex items-center gap-3">
+									<Wind />
+									Wind
+								</div>
+								<p className=" self-center">
+									{Math.round(weatherData.wind.speed)} Km/h
+								</p>
+							</div>
+							<Divider />
+						</section>
+						<section>
+							<div className="flex mb-3 w-full justify-between">
+								<div className="flex items-center gap-3">
+									<Eye />
+									Visibility
+								</div>
+								<p className=" self-center">
+									{weatherData.visibility / 1000} Km
+								</p>
+							</div>
+							<Divider />
+						</section>
+					</div>
+				</CardBody>
+			</Card>
+			<Card className="w-full">
+				<CardBody>
+					<div className=" grid grid-cols-2 grid-rows-3 gap-4">
+							{Object.entries(
+								weatherData.air_quality.components
+							).map(([key, value]) => {
 								return (
-									<div key={key} className="flex gap-3">
-										<Tooltip content={polluting_gases[key]}>
-											<p className=" first-letter:uppercase">{key}</p>
+									<section key={key}>
+									<div className="flex mb-3 w-full justify-between">
+									<Tooltip content={polluting_gases[key]}>
+											<p className=" first-letter:uppercase">
+												{key}
+											</p>
 										</Tooltip>
 										<p>{value}</p>
 									</div>
+									<Divider />
+								</section>
 								);
 							})}
-						</div> */}
-					</div>
+						</div>
 				</CardBody>
 			</Card>
 		</div>

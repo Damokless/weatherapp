@@ -6,6 +6,8 @@ export default interface WDataTypes {
 			temp_min: number;
 			temp_max: number;
 			feels_like: number;
+			humidity : number;
+			pressure : number;
 		};
 		air_quality: {
 			air_quality_index: number;
@@ -18,6 +20,11 @@ export default interface WDataTypes {
 		sys: {
 			sunrise : number,
 			sunset : number
+		};
+		wind : {
+			speed : number;
+			deg : number
 		}
+		visibility : number
 	};
 }
