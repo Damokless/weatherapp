@@ -15,9 +15,11 @@ export default function Search({ setValue }: Readonly<SetWeatherValue>) {
 		setIsLoading(true);
 		clearTimeout(timer);
 		const newTimer = window.setTimeout(async () => {
+			setIsLoading(true);
 			setGeocodeData(
 				await fetch_geocode(text, process.env.NEXT_PUBLIC_OW_API_KEY)
 			);
+			setIsLoading(false)
 			return 0;
 		}, 250);
 		setTimer(newTimer);
