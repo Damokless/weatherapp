@@ -72,7 +72,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</div>
 					</div>
 				</CardHeader>
-				<CardBody className="flex flex-row gap-2 justify-center items-center">
+				<CardBody className=" grid grid-cols-3 md:flex md:flex-row gap-2 justify-center items-center">
 					{weatherData.forecast.map(
 						(forecast: {
 							dt: number;
@@ -82,8 +82,8 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						}) => {
 							return (
 								<Card key={forecast.dt}>
-									<CardBody>
-										<p className="text-small text-default-500 text-center">
+									<CardBody className="flex flex-col justify-center items-center">
+										<p className=" text-small text-default-500 text-center">
 											{new Date(
 												forecast.dt * 1000
 											).toLocaleTimeString("fr-fr", {
@@ -93,10 +93,10 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 										</p>
 										<Image
 											alt="weather icon"
+											width={48}
 											height={48}
 											radius="sm"
 											src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
-											width={48}
 										/>
 										<div className="text-center">
 											<p className="text-small text-default-500">
