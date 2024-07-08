@@ -23,7 +23,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 	};
 	return (
 		<div className=" flex justify-center items-center flex-col gap-8 w-11/12">
-			<Card className="">
+			<Card className="w-full">
 				<CardHeader className="flex gap-3">
 					<div className="w-full">
 						<div className="flex gap-1items-center pl-4">
@@ -72,7 +72,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</div>
 					</div>
 				</CardHeader>
-				<CardBody className="flex flex-row gap-2">
+				<CardBody className="flex flex-row gap-2 justify-center items-center">
 					{weatherData.forecast.map(
 						(forecast: {
 							dt: number;
