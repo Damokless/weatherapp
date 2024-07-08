@@ -6,7 +6,7 @@ export default function Home() {
 	const [weatherData, setWeatherData] = useState();
 	return (
 		<div className="w-full md:h-screen	">
-			<div className="grid grid-cols-1 lg:grid-cols-2 w-full h-full">
+			<div className="grid grid-cols-1 xl:grid-cols-2 w-full h-full">
 				<Search setValue={setWeatherData} />
 				{weatherData && <WeatherCards weatherData={weatherData} />}
 			</div>
