@@ -22,7 +22,7 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 		so2: "Sulphur dioxide",
 	};
 	return (
-		<div className=" flex justify-center items-center flex-col gap-8 w-11/12">
+		<div className=" flex lg:justify-center lg:items-center place-self-center flex-col gap-8 w-11/12">
 			<Card className="w-full">
 				<CardHeader className="flex gap-3">
 					<div className="w-full">
