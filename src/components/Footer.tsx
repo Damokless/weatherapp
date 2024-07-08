@@ -11,7 +11,7 @@ export default function Footer() {
 					</Link>
 				</p>
 			</div>
-			<div className=" flex flex-col md:flex-row gap-4 mb-16">
+			<div className=" flex flex-col md:flex-row gap-4 md:mb-16">
 				<Button
 					startContent={
 						<svg
