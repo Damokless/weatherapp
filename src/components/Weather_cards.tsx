@@ -116,11 +116,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 					<div className=" grid grid-cols-2 grid-rows-3 gap-4">
 						<section>
 							<div className="flex mb-3 w-full justify-between">
-								<div className="flex items-center gap-3">
+								<div className="flex items-center gap-3 text-xs md:text-base">
 									<SunRise />
 									Sunrise
 								</div>
-								<p className=" self-center">
+								<p className=" self-center text-xs md:text-base">
 									{new Date(
 										weatherData.sys.sunrise * 1000
 									).toLocaleTimeString("fr-fr", {
@@ -133,11 +133,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</section>
 						<section>
 							<div className="flex mb-3 w-full justify-between">
-								<div className="flex items-center gap-3">
+								<div className="flex items-center gap-3 text-xs md:text-base">
 									<SunSet />
 									Sunset
 								</div>
-								<p className=" self-center">
+								<p className=" self-center text-xs md:text-base">
 									{new Date(
 										weatherData.sys.sunset * 1000
 									).toLocaleTimeString("fr-fr", {
@@ -150,11 +150,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</section>
 						<section>
 							<div className="flex mb-3 w-full justify-between">
-								<div className="flex items-center gap-3">
+								<div className="flex items-center gap-3 text-xs md:text-base">
 									<Droplet />
 									Humidity
 								</div>
-								<p className=" self-center">
+								<p className=" self-center text-xs md:text-base">
 									{weatherData.main.humidity}%
 								</p>
 							</div>
@@ -162,11 +162,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</section>
 						<section>
 							<div className="flex mb-3 w-full justify-between">
-								<div className="flex items-center gap-3">
+								<div className="flex items-center gap-3 text-xs md:text-base">
 									<Pressure />
 									Pressure
 								</div>
-								<p className=" self-center">
+								<p className=" self-center text-xs md:text-base">
 									{weatherData.main.pressure}
 								</p>
 							</div>
@@ -174,11 +174,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</section>
 						<section>
 							<div className="flex mb-3 w-full justify-between">
-								<div className="flex items-center gap-3">
+								<div className="flex items-center gap-3 text-xs md:text-base">
 									<Wind />
 									Wind
 								</div>
-								<p className=" self-center">
+								<p className=" self-center text-xs md:text-base">
 									{Math.round(weatherData.wind.speed)} Km/h
 								</p>
 							</div>
@@ -186,11 +186,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 						</section>
 						<section>
 							<div className="flex mb-3 w-full justify-between">
-								<div className="flex items-center gap-3">
+								<div className="flex items-center gap-3 text-xs md:text-base">
 									<Eye />
 									Visibility
 								</div>
-								<p className=" self-center">
+								<p className=" self-center text-xs md:text-base">
 									{weatherData.visibility / 1000} Km
 								</p>
 							</div>
@@ -209,11 +209,11 @@ export default function WeatherCards({ weatherData }: Readonly<WDataTypes>) {
 									<section key={key}>
 									<div className="flex mb-3 w-full justify-between">
 									<Tooltip content={polluting_gases[key]}>
-											<p className=" first-letter:uppercase">
+											<p className=" first-letter:uppercase text-xs md:text-base">
 												{key}
 											</p>
 										</Tooltip>
-										<p>{value}</p>
+										<p className="text-xs md:text-base">{value}</p>
 									</div>
 									<Divider />
 								</section>
