@@ -37,9 +37,9 @@ export default function Search({ setValue }: Readonly<SetWeatherValue>) {
 		}
 	}
 	return (
-		<div className="w-full h-full flex flex-col justify-center items-center gap-3">
-			<div className="w-5/6 flex text-start">
-				<h1 className=" lg:text-3xl">Where are we going?</h1>
+		<div className="w-full h-full flex flex-col justify-center items-center gap-3 mb-12 md:mb-0">
+			<div className="w-5/6 flex justify-center xl:justify-normal">
+				<h1 className=" md:text-3xl">Where are we going?</h1>
 			</div>
 			<Autocomplete
 				className=" w-5/6"
